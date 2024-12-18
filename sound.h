@@ -3,7 +3,7 @@
 
 #include <map>
 #include <string>
-#include <SFML\Audio.hpp>
+#include <SFML/Audio.hpp>
 #include "tank.h"
 
 typedef std::unordered_map < std::string, sf::Sound > soundsMap;
@@ -13,7 +13,7 @@ private:
 	std::map<int, sf::SoundBuffer> buffer;
 public:
 	// List of sounds:
-	// ride, rest, gameOver, shot, arrowsBlok
+	// ride, rest, gameover, shot, arrowsBlok
 	soundsMap Sounds;
 
 	Sound(){
@@ -31,9 +31,9 @@ public:
 		Sounds["tank2"].setVolume(50);
 		i++;
 
-		buffer[i].loadFromFile("data/gameOver.wav");
-		Sounds["gameOver"].setBuffer(buffer[i]);
-		Sounds["gameOver"].setVolume(75);
+		buffer[i].loadFromFile("data/gameover.wav");
+		Sounds["gameover"].setBuffer(buffer[i]);
+		Sounds["gameover"].setVolume(75);
 		i++;
 
 		buffer[i].loadFromFile("data/Winning.wav");
@@ -81,7 +81,7 @@ public:
 	void stopAll(){
 		Sounds["move"].stop();
 		Sounds["tank2"].stop();
-		Sounds["gameOver"].stop();
+		Sounds["gameover"].stop();
 		Sounds["Winning"].stop();
 		Sounds["shot"].stop();
 		Sounds["Blok"].stop();

@@ -1,13 +1,14 @@
 #pragma oncev
 #include "Clock.h"
-#include <Windows.h>
+//#include <Windows.h>
 #include "single.h"
 #include "sprite.h"
 #include "map.h"
 #include "block.h"
-#include <tchar.h>
+//#include <tchar.h>
+#include <cassert>
 
-#define NOMINMAX
+//#define NOMINMAX
 
 class Game{
 public:
@@ -62,11 +63,13 @@ public:
 
  		state = GameState::EXIT;
 		if (!spr.isGood()){
-			MessageBox(NULL, _T("Some image not found!"), _T("ERROR"), NULL);
+			//MessageBox(NULL, _T("Some image not found!"), _T("ERROR"), NULL);
+     assert(false && "Some image not found!");
 			return;
 		}
 		if (!font.loadFromFile("data/joystix monospace.ttf")){
-			MessageBox(NULL, _T("Font not found!"), _T("ERROR"), NULL);
+			//MessageBox(NULL, _T("Font not found!"), _T("ERROR"), NULL);
+     assert(false && "Font not found!");
 			return;
 		}
 		state = GameState::Menu;

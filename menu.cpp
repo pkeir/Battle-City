@@ -1,4 +1,5 @@
 #include "game.h"
+#include <cmath>
 
 void Game::menu(){
 	const int ILE{ 3 };

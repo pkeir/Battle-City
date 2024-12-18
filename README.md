@@ -33,6 +33,15 @@ Both players have to defend the base together, and if one player shoots the othe
 *****************************************************************************
 ```
 
+## Building:
+### Ubuntu
+
+```
+sudo apt-get install libsfml-dev
+g++ *.cpp -lsfml-audio -lsfml-system -lsfml-window -lsfml-graphics
+./a.out
+```
+
 ## Design:
 ### List of files
 **Note:  (^ X : inheritance from Class X)**

@@ -4,7 +4,10 @@
 #include "enemy.h"
 #include <fstream>
 #include "sound.h"
-#include <windows.h>
+//#include <windows.h>
+#include <chrono>
+#include <thread>
+#include <cassert>
 
 
 extern Sound sound;
@@ -233,6 +236,8 @@ bool Map::gameGood(){
 	case Map::GameState::gameOver:	gameOver();	lvl.levelCount = 1;	return 0;
 	case Map::GameState::exit:		Exit(); lvl.levelCount = 1;     return 0;
 	}
+  assert(false && "How did we get here!?");
+  return false;
 }
 
 bool Map::checkGameStatus(){
@@ -395,7 +400,8 @@ void Map::Won()
 	sound.Sounds["Winning"].play();
 	while (sound.Sounds["Winning"].getStatus() == sf::Sound::Status::Playing) {
 		wndow.draw(Win);
-		Sleep(1000);
+		//Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 		wndow.display();
 	}
 
@@ -417,7 +423,8 @@ void Map::gameOver() {
 	sound.Sounds["gameOver"].play();
 	while (sound.Sounds["gameOver"].getStatus() == sf::Sound::Status::Playing){
 		wndow.draw(GameOver);
-		Sleep(1000);
+		//Sleep(1000);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 	    wndow.display();
      }
 
